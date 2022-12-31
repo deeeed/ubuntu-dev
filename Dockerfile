@@ -13,4 +13,4 @@ ENV TZ=Asia/Hong_Kong
 RUN apt-get update && \
     apt-get install -y tzdata dumb-init curl nodejs wget openjdk-11-jdk-headless hostname openssl netcat npm gcc build-essential net-tools tcpdump
 
-CMD ["dumb-init", "nc", "-l", "1337"]
+CMD ["dumb-init", "nc", "-lkvv", "1337"]

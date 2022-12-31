@@ -3,7 +3,7 @@
 Simple image to get started quickly for local dev or debug network activity.
 
 - use a simple port listener to avoid having running the image interactively and prevent automatic exit (useuful for k8s).
-    - `nc -l 1337`
+    - `nc -l -k 1337`
 - no care for image size optimization, this is not meant for production.
 ## Publish
 
