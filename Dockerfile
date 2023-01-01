@@ -11,6 +11,8 @@ USER root
 ENV TZ=Asia/Hong_Kong 
 # Default dev packages
 RUN apt-get update && \
-    apt-get install -y tzdata dumb-init curl nodejs wget openjdk-11-jdk-headless hostname openssl netcat npm gcc build-essential net-tools tcpdump
+    apt-get install -y tzdata dumb-init curl nodejs wget openjdk-11-jdk-headless \
+    hostname openssl netcat npm gcc build-essential net-tools tcpdump \
+    iputils-ping
 
 CMD ["dumb-init", "nc", "-lkvv", "1337"]
