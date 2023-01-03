@@ -1,4 +1,4 @@
-name: ci
+name: cicd
 
 on:
   push:
@@ -22,9 +22,20 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
+        name: Build and push ubuntu dev
         uses: docker/build-push-action@v3
         with:
           push: true
+          file: Dockerfile.dev
           tags: deeeed/ubuntu-dev:latest
+          platforms: linux/amd64,linux/arm64
+    
+      -
+        name: Build and push github runner
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile.runner
+          push: true
+          tags: deeeed/github-runner:latest
           platforms: linux/amd64,linux/arm64
