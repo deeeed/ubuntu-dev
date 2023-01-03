@@ -11,14 +11,15 @@ Simple image to get started quickly for local dev or debug network activity.
 # Replace with your own docker credentials
 docker login
 
-# for macos m1 users, create multi-arch build
-docker buildx create --name mybuilder --use
-docker buildx inspect --bootstrap
-docker buildx build --platform linux/amd64,linux/arm64 --push -t docker.io/deeeed/ubuntu-dev:latest .
+# # for macos m1 users, create multi-arch build
+# docker buildx create --name mybuilder --use
+# docker buildx inspect --bootstrap
+# docker buildx build --platform linux/amd64,linux/arm64 --push -t docker.io/deeeed/ubuntu-dev:latest .
 
 # or if you don't care for multi-arch
 docker build -t docker.io/deeeed/ubuntu-dev:latest .
-docker push docker.io/deeeed/ubuntu-dev:latest
+# docker push docker.io/deeeed/ubuntu-dev:latest
+# github actions will automatically publish multi-arch images
 
 # try it on interactively
 docker run -it deeeed/ubuntu-dev bash
