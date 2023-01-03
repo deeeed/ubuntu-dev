@@ -34,7 +34,6 @@ jobs:
         name: Build and push github runner
         uses: docker/build-push-action@v3
         with:
-          context: .
           file: Dockerfile.runner
           push: true
           tags: deeeed/runner:latest
