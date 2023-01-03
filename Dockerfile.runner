@@ -10,7 +10,7 @@ ENV NVM_DIR $HOME/.nvm
 
 RUN sudo apt update -y \
   && umask 0002 \
-  && sudo apt install -y ca-certificates curl apt-transport-https lsb-release gnupg \
+  && sudo apt install -y ca-certificates curl apt-transport-https lsb-release gnupg nodejs \
   && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
     && . $NVM_DIR/nvm.sh \
     && nvm install v$NODE_VERSION \
