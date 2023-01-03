@@ -37,5 +37,5 @@ jobs:
           context: .
           file: Dockerfile.runner
           push: true
-          tags: deeeed/github-runner:latest
+          tags: deeeed/runner:latest
           platforms: linux/amd64,linux/arm64
