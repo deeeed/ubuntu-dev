@@ -18,6 +18,7 @@ docker login
 
 # or if you don't care for multi-arch
 docker build -t docker.io/deeeed/ubuntu-dev:latest .
+docker build -f Dockerfile.github -t docker.io/deeeed/ubuntu-dev:latest .
 # docker push docker.io/deeeed/ubuntu-dev:latest
 # github actions will automatically publish multi-arch images
 
