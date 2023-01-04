@@ -1,11 +1,18 @@
-# ubuntu-dev
+# SETUP
+
+This repository creates and deploy two docker images `deeeed/ubuntu-dev` and `deeeed/runner`:
+
+CICD pipeline will automatically publish to:
+- [https://hub.docker.com/repository/docker/deeeed/ubuntu-dev]
+- [https://hub.docker.com/repository/docker/deeeed/runner]
+
+## ubuntu-dev
 
 `Dockerfile.dev`: Simple image to get started quickly for local dev or debug network activity.
 
 - use a simple port listener to avoid having running the image interactively and prevent automatic exit (useuful for k8s).
     - `nc -l -k 1337`
 - no care for image size optimization, this is not meant for production.
-## Publish
 
 ```bash
 # Replace with your own docker credentials
@@ -28,9 +35,11 @@ docker run -it deeeed/ubuntu-dev bash
 docker run -d deeeed/ubuntu-dev
 ```
 
-# github runner
+## github runner
 
-Extend default github runner `summerwind/actions-runner:latest` to add node16 + yarn support.
+`Dockerfile.runner`: Image to get started quickly for custom github runner.
+
+Extend default github runner `summerwind/actions-runner:latest` to add node16 + yarn support + kubectl client.
 
 ```bash
 docker build -f Dockerfile.runner -t docker.io/deeeed/runner:latest .

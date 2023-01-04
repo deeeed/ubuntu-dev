@@ -15,10 +15,14 @@ USER root
 # Set timezone otherwise image cannot build 
 ENV TZ=Asia/Hong_Kong 
 # Default dev packages
-RUN apt-get update && apt-get install -y curl vim \
+RUN apt-get update \
+    && apt-get install -y curl vim \
     tzdata dumb-init wget openjdk-11-jdk-headless \
     hostname openssl netcat npm gcc build-essential net-tools tcpdump \
-    iputils-ping 
+    iputils-ping \
+    && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add - \
+    && sudo echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list \
+    && sudo apt update && sudo apt install -y kubectl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
     && . $NVM_DIR/nvm.sh \
     && nvm install v$NODE_VERSION \

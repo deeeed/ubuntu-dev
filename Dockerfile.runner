@@ -8,8 +8,8 @@ WORKDIR /home/runner
 RUN sudo apt update -y \
   && umask 0002 \
   && sudo apt install -y ca-certificates curl build-essential python3 g++ make python3-pip tar \
+  && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add - \
   && sudo curl -sL https://deb.nodesource.com/setup_16.x | sudo bash \
-  && sudo apt install nodejs \
+  && sudo echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list \
+  && sudo apt update && sudo apt install -y nodejs kubectl \
   && sudo npm install --location=global yarn
-
-RUN sudo rm -rf /var/lib/apt/lists/*
