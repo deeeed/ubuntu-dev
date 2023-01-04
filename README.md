@@ -24,7 +24,7 @@ docker login
 # docker buildx build --platform linux/amd64,linux/arm64 --push -t docker.io/deeeed/ubuntu-dev:latest .
 
 # or if you don't care for multi-arch
-docker build -f Dockerfile.dev -t docker.io/deeeed/ubuntu-dev:latest .
+docker build -f Dockerfile.dev -t docker.io/deeeed/ubuntu-dev:latest . --no-cache
 # docker push docker.io/deeeed/ubuntu-dev:latest
 # github actions will automatically publish multi-arch images
 
@@ -42,7 +42,7 @@ docker run -d deeeed/ubuntu-dev
 Extend default github runner `summerwind/actions-runner:latest` to add node16 + yarn support + kubectl client.
 
 ```bash
-docker build -f Dockerfile.runner -t docker.io/deeeed/runner:latest .
+docker build -f Dockerfile.runner -t docker.io/deeeed/runner:latest . --no-cache
 
 docker run -it deeeed/runner bash
 ```
