@@ -20,4 +20,4 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo bash \
   && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/cloud.google.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list \
   && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm.list \
   && sudo apt update && sudo apt install -y nodejs kubectl helm gh \
-  && sudo npm install --location=global yarn
+  && sudo npm install --location=global yarn pnpm
