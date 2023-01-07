@@ -39,7 +39,13 @@ docker run -d deeeed/ubuntu-dev
 
 `Dockerfile.runner`: Image to get started quickly for custom github runner.
 
-Extend default github runner `summerwind/actions-runner:latest` to add node16 + yarn support + kubectl client.
+Extend default github runner `summerwind/actions-runner:latest` to add:
+- node16 
+- yarn + pnpm
+- nvm
+- latest docker
+- kubectl
+- helm
 
 ```bash
 docker build -f Dockerfile.runner -t docker.io/deeeed/runner:latest . --no-cache
